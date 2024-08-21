@@ -13,7 +13,28 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import RandomForestClassifier
 
+# Streamlit app
+st.title("Churn Prediction App")
 
+# Input fields
+user_id = st.text_input("User ID")
+region = st.selectbox("Region", ["North", "South", "East", "West"])
+tenure = st.number_input("Tenure", min_value=0)
+montant = st.number_input("Montant", min_value=0.0)
+frequence_rech = st.number_input("Frequence Recharge", min_value=0)
+revenue = st.number_input("Revenue", min_value=0.0)
+arpu_segment = st.number_input("ARPU Segment", min_value=0.0)
+frequence = st.number_input("Frequence", min_value=0)
+data_volume = st.number_input("Data Volume", min_value=0)
+on_net = st.number_input("On Net", min_value=0)
+orange = st.number_input("Orange", min_value=0)
+tigo = st.number_input("Tigo", min_value=0)
+zone1 = st.number_input("Zone1", min_value=0)
+zone2 = st.number_input("Zone2", min_value=0)
+mrg = st.number_input("MRG", min_value=0)
+regularity = st.number_input("Regularity", min_value=0)
+top_pack = st.selectbox("Top Pack", ["Pack1", "Pack2", "Pack3"])
+freq_top_pack = st.number_input("Freq Top Pack", min_value=0)
 
 df= pd.read_csv("clean_data.csv")
 
@@ -44,28 +65,8 @@ model.fit(X, y)
 
 
 
-# Streamlit app
-st.title("Churn Prediction App")
 
-# Input fields
-user_id = st.text_input("User ID")
-region = st.selectbox("Region", ["North", "South", "East", "West"])
-tenure = st.number_input("Tenure", min_value=0)
-montant = st.number_input("Montant", min_value=0.0)
-frequence_rech = st.number_input("Frequence Recharge", min_value=0)
-revenue = st.number_input("Revenue", min_value=0.0)
-arpu_segment = st.number_input("ARPU Segment", min_value=0.0)
-frequence = st.number_input("Frequence", min_value=0)
-data_volume = st.number_input("Data Volume", min_value=0)
-on_net = st.number_input("On Net", min_value=0)
-orange = st.number_input("Orange", min_value=0)
-tigo = st.number_input("Tigo", min_value=0)
-zone1 = st.number_input("Zone1", min_value=0)
-zone2 = st.number_input("Zone2", min_value=0)
-mrg = st.number_input("MRG", min_value=0)
-regularity = st.number_input("Regularity", min_value=0)
-top_pack = st.selectbox("Top Pack", ["Pack1", "Pack2", "Pack3"])
-freq_top_pack = st.number_input("Freq Top Pack", min_value=0)
+
 
 # Button to make prediction
 if st.button("Predict"):
